@@ -1,0 +1,305 @@
+.campus {
+  padding: 0;
+}
+
+/* 校区未找到页面 */
+.campus-not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.campus-not-found h1 {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+}
+
+.campus-not-found p {
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+}
+
+/* 校区英雄区域 */
+.campus-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: -20px -20px 2rem -20px;
+}
+
+.campus-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.campus-hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.campus-quick-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* 校区内容区域 */
+.campus-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+/* 主要内容区域 */
+.campus-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.campus-image {
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.campus-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.campus-image:hover img {
+  transform: scale(1.05);
+}
+
+.campus-description, 
+.campus-features, 
+.campus-transportation {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.campus-description h2,
+.campus-features h2,
+.campus-transportation h2 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.campus-description p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* 校区特色 */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.feature-item {
+  background: var(--light-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: #e8f4fd;
+  transform: translateX(5px);
+}
+
+/* 交通路线 */
+.transportation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transportation-item {
+  padding: 0.75rem 1rem;
+  background: var(--light-color);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--success-color);
+  color: var(--dark-color);
+}
+
+/* 侧边栏 */
+.campus-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.campus-info-card,
+.campus-contact-card,
+.other-campuses {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.campus-info-card h3,
+.campus-contact-card h3,
+.other-campuses h3 {
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+}
+
+/* 基本信息 */
+.info-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-label {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: var(--dark-color);
+  line-height: 1.4;
+}
+
+/* 联系咨询卡片 */
+.campus-contact-card p {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* 其他校区 */
+.other-campus-item {
+  padding: 1rem;
+  background: var(--light-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.other-campus-item:hover {
+  background: #e8f4fd;
+  transform: translateX(3px);
+}
+
+.other-campus-item strong {
+  display: block;
+  color: var(--dark-color);
+  margin-bottom: 0.25rem;
+}
+
+.other-campus-item small {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .campus-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .campus-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .campus-hero-content p {
+    font-size: 1rem;
+  }
+  
+  .campus-quick-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .campus-quick-actions button {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .campus-content {
+    padding: 1rem;
+  }
+  
+  .campus-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .campus-image img {
+    height: 200px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-item {
+    flex-direction: column;
+  }
+  
+  .campus-description,
+  .campus-features,
+  .campus-transportation,
+  .campus-info-card,
+  .campus-contact-card,
+  .other-campuses {
+    padding: 1.5rem;
+  }
+}

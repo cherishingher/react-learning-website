@@ -1,0 +1,283 @@
+.about {
+  padding: 0;
+}
+
+/* 关于我们英雄区域 */
+.about-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: -20px -20px 2rem -20px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 内容区域 */
+.about-content {
+  padding: 2rem;
+}
+
+.mission, .values, .team, .stats {
+  margin-bottom: 4rem;
+}
+
+.mission h2, .values h2, .team h2, .stats h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
+
+.mission p {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--secondary-color);
+}
+
+/* 价值观网格 */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.value-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.value-item h3 {
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.value-item p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+/* 简洁团队网格 */
+.team-simple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.team-member-simple {
+  text-align: center;
+}
+
+.member-avatar-button {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.member-avatar-button:hover {
+  transform: translateY(-5px);
+}
+
+.member-avatar-button img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--light-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.member-avatar-button:hover img {
+  border-color: var(--primary-color);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.member-avatar-button::after {
+  content: '点击查看详情';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.member-avatar-button:hover::after {
+  opacity: 1;
+}
+
+.member-simple-info h4 {
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.member-simple-position {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.member-simple-title {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.team-description {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.team-description p {
+  color: var(--secondary-color);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* 统计数据 */
+.stats {
+  background: var(--light-color);
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  margin: 2rem -2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--dark-color);
+  font-size: 1.1rem;
+}
+
+/* 获奖展示区域 */
+.achievements-section {
+  margin-top: 3rem;
+}
+
+.achievements-section h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.achievements-description {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .about-hero p {
+    font-size: 1rem;
+  }
+  
+  .about-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .about-content {
+    padding: 1rem;
+  }
+  
+  .mission, .values, .team, .stats {
+    margin-bottom: 2rem;
+  }
+  
+  .stats {
+    margin: 2rem -1rem;
+  }
+  
+  .team-simple-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .member-avatar-button img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .member-simple-info h4 {
+    font-size: 1.2rem;
+  }
+  
+  .member-simple-position {
+    font-size: 0.95rem;
+  }
+  
+  .member-simple-title {
+    font-size: 0.85rem;
+  }
+}
