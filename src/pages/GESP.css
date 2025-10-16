@@ -1,0 +1,708 @@
+.gesp {
+  padding: 0;
+  min-height: 100vh;
+}
+
+.gesp-hero {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: -20px -20px 3rem -20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-content > p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.gesp-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* GESP介绍区域 */
+.gesp-intro {
+  margin-bottom: 4rem;
+}
+
+.gesp-intro h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.gesp-intro > p {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.gesp-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 2rem;
+  background: var(--gradient-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.benefit-item p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 级别概览 */
+/* 语言选择 */
+.language-selection {
+  margin-bottom: 4rem;
+}
+
+.language-selection h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.language-selection p {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.language-card {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.language-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 123, 255, 0.3);
+}
+
+.language-header {
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.language-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.language-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.language-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.difficulty,
+.age-range {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.language-content {
+  padding: 2rem;
+}
+
+.language-description {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.language-features h4,
+.language-applications h4 {
+  color: var(--dark-color);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.language-features ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.language-features li {
+  color: var(--dark-color);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.language-features li:last-child {
+  border-bottom: none;
+}
+
+.applications-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.application-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.language-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: var(--light-color);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.language-stats .stat-item {
+  text-align: center;
+}
+
+.language-stats .stat-number {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.language-stats .stat-label {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.language-footer {
+  padding: 0 2rem 2rem;
+}
+
+.language-btn {
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* GESP优势 */
+.gesp-advantages {
+  margin-bottom: 4rem;
+}
+
+.gesp-advantages h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gesp-advantages .advantage-item {
+  background: var(--gradient-card);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.gesp-advantages .advantage-item:hover {
+  transform: translateY(-5px);
+}
+
+.advantage-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.gesp-advantages .advantage-item h3 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.gesp-advantages .advantage-item p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.levels-overview {
+  margin-bottom: 4rem;
+}
+
+.levels-overview h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+/* 视频区域 */
+.videos-section {
+  margin-bottom: 4rem;
+}
+
+.videos-header-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.videos-header-section h2 {
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.videos-header-section p {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.level-selector h4 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.level-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.level-btn {
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.level-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.level-btn.active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 管理后台区域 */
+.admin-section {
+  margin-bottom: 4rem;
+}
+
+.admin-section h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.admin-dashboard {
+  background: var(--gradient-card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.admin-stats h4 {
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.admin-level-stat {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.level-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.level-info .level-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.level-info .level-name {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.upload-progress {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.mini-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: var(--success-color);
+  transition: width 0.3s ease;
+}
+
+/* 学习路径规划 */
+.gesp-roadmap {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.gesp-roadmap h2 {
+  text-align: center;
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.roadmap-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.roadmap-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.timeline-section {
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.timeline-section.beginner {
+  background: linear-gradient(135deg, #4CAF5010, #81C78410);
+  border: 2px solid #4CAF50;
+}
+
+.timeline-section.intermediate {
+  background: linear-gradient(135deg, #2196F310, #64B5F610);
+  border: 2px solid #2196F3;
+}
+
+.timeline-section.advanced {
+  background: linear-gradient(135deg, #9C27B010, #BA68C810);
+  border: 2px solid #9C27B0;
+}
+
+.timeline-section.expert {
+  background: linear-gradient(135deg, #F4433610, #E5393510);
+  border: 2px solid #F44336;
+}
+
+.timeline-section h3 {
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.timeline-section p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.timeline-section ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.timeline-section li {
+  color: var(--dark-color);
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* 报名CTA区域 */
+.enrollment-cta {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .gesp-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content > p {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .gesp-content {
+    padding: 1rem;
+  }
+  
+  .gesp-intro > p {
+    font-size: 1rem;
+  }
+  
+  .levels-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .roadmap-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .timeline-section {
+    padding: 1.5rem;
+  }
+  
+  .enrollment-cta {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    min-width: auto;
+  }
+}

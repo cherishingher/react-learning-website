@@ -1,0 +1,377 @@
+.gesp-language {
+  padding: 0;
+  min-height: 100vh;
+}
+
+.language-not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.language-not-found h1 {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+}
+
+.language-not-found p {
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+}
+
+.language-hero {
+  color: white;
+  padding: 4rem 2rem;
+  margin: -20px -20px 3rem -20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.language-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.language-icon-big {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.language-title h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.language-title p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.language-highlights {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.highlight-stats {
+  display: flex;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.highlight-stats .stat-item {
+  text-align: center;
+}
+
+.highlight-stats .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-stats .stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.language-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 语言优势 */
+.language-advantages {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.language-advantages h2 {
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.advantages-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.advantage-item {
+  background: var(--gradient-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.advantage-item:hover {
+  transform: translateY(-5px);
+}
+
+.advantage-text {
+  color: var(--dark-color);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* 级别选择区域 */
+.levels-section {
+  margin-bottom: 4rem;
+}
+
+.levels-section h2 {
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.levels-section > p {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* 学习路径 */
+.learning-path {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.learning-path h2 {
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.path-visualization {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.path-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.stage {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  border: 2px solid;
+}
+
+.stage.beginner {
+  background: linear-gradient(135deg, #4CAF5010, #81C78410);
+  border-color: #4CAF50;
+}
+
+.stage.intermediate {
+  background: linear-gradient(135deg, #2196F310, #64B5F610);
+  border-color: #2196F3;
+}
+
+.stage.advanced {
+  background: linear-gradient(135deg, #9C27B010, #BA68C810);
+  border-color: #9C27B0;
+}
+
+.stage.expert {
+  background: linear-gradient(135deg, #F4433610, #E5393510);
+  border-color: #F44336;
+}
+
+.stage h3 {
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.stage p {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.stage-levels {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* 开始学习CTA */
+.start-learning-cta {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .language-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .language-title h1 {
+    font-size: 2rem;
+  }
+  
+  .language-title p {
+    font-size: 1rem;
+  }
+  
+  .language-icon-big {
+    font-size: 3rem;
+  }
+  
+  .highlight-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .highlight-stats .stat-number {
+    font-size: 2rem;
+  }
+  
+  .language-content {
+    padding: 1rem;
+  }
+  
+  .advantages-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .levels-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .path-stages {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stage {
+    padding: 1.5rem;
+  }
+  
+  .start-learning-cta {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    min-width: auto;
+  }
+}
+
+
+

@@ -1,0 +1,404 @@
+.gesp-level-card {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.gesp-level-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gesp-level-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.gesp-level-card.completed {
+  border-color: var(--success-color);
+  background: linear-gradient(135deg, #d4edda05, #c3e6cb05);
+}
+
+.gesp-level-card.current {
+  border-color: #ffc107;
+  background: linear-gradient(135deg, #fff3cd05, #ffeaa705);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.gesp-level-card.locked {
+  opacity: 0.6;
+  background: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.level-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.level-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.level-basic-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.level-number {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.level-name {
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.level-subtitle {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.level-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: right;
+  min-width: 120px;
+}
+
+.difficulty {
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+.age-range,
+.duration {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.level-status {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.status-badge.completed {
+  background: var(--success-color);
+  color: white;
+}
+
+.status-badge.current {
+  background: #ffc107;
+  color: #212529;
+}
+
+.status-badge.locked {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+  background: var(--light-color);
+  color: var(--primary-color);
+}
+
+/* 详细内容区域 */
+.level-card-details {
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.level-description,
+.level-requirements,
+.skills-framework,
+.course-structure,
+.content-outline {
+  margin-bottom: 2rem;
+}
+
+.level-card-details h4 {
+  color: var(--dark-color);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.level-card-details h5 {
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.level-description p,
+.level-requirements p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+.skills-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.skills-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.skills-section li {
+  color: var(--dark-color);
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.skills-section li::before {
+  content: '•';
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* 课程结构统计 */
+.structure-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+/* 内容大纲 */
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.module-item {
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--success-color);
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.module-header h5 {
+  color: var(--dark-color);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.module-hours {
+  background: var(--light-color);
+  color: var(--secondary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.module-topics {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.topic-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.content-placeholder {
+  background: var(--light-color);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px dashed #ccc;
+}
+
+.content-placeholder p {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* 级别操作区域 */
+.level-actions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.locked-message {
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.locked-message p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.locked-message span {
+  font-size: 0.9rem;
+  color: var(--warning-color);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.start-btn {
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  min-width: 200px;
+}
+
+.start-btn:disabled {
+  background: var(--secondary-color);
+  cursor: not-allowed;
+}
+
+.login-hint {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .level-card-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .level-meta {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .level-status {
+    position: static;
+    margin-top: 0.5rem;
+  }
+  
+  .expand-btn {
+    margin-top: 0.5rem;
+  }
+  
+  .structure-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .module-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .start-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .skills-section {
+    padding: 0.75rem;
+  }
+  
+  .level-card-details {
+    padding: 1rem;
+  }
+}
+
+
+

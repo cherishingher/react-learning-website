@@ -1,128 +1,239 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import './Courses.css'
+import { COURSE_LIST, COURSE_CATEGORIES, CATEGORY_ICON_MAP } from '../data/courseCatalog'
+import TechBackground from '../components/TechBackground'
+import '../components/TechBackground.css'
 
 const Courses = () => {
   const navigate = useNavigate()
   const [selectedCategory, setSelectedCategory] = useState('全部')
 
-  const handleEnrollCourse = (courseTitle) => {
-    alert(`感谢您的兴趣！"${courseTitle}" 报名功能正在开发中。\n请通过联系我们页面了解更多信息。`)
-    navigate('/contact')
+  const handleEnrollCourse = (course) => {
+    if (course.link) {
+      navigate(course.link)
+    } else {
+      alert(`感谢您的兴趣！"${course.title}" 课程功能正在开发中。\n请通过联系我们页面了解更多信息。`)
+      navigate('/contact')
+    }
   }
 
-  const courses = [
-    {
-      id: 1,
-      title: 'React 基础入门',
-      category: '前端开发',
-      price: 199,
-      students: 1245,
-      rating: 4.8,
-      image: 'https://via.placeholder.com/300x200?text=React+基础',
-      description: '从零开始学习React，掌握现代前端开发'
-    },
-    {
-      id: 2,
-      title: 'Vue.js 完整教程',
-      category: '前端开发',
-      price: 229,
-      students: 987,
-      rating: 4.7,
-      image: 'https://via.placeholder.com/300x200?text=Vue.js+教程',
-      description: '深入学习Vue.js框架及其生态系统'
-    },
-    {
-      id: 3,
-      title: 'Node.js 后端开发',
-      category: '后端开发',
-      price: 299,
-      students: 756,
-      rating: 4.9,
-      image: 'https://via.placeholder.com/300x200?text=Node.js+后端',
-      description: '使用Node.js构建强大的后端应用'
-    },
-    {
-      id: 4,
-      title: 'MySQL 数据库管理',
-      category: '数据库',
-      price: 249,
-      students: 623,
-      rating: 4.6,
-      image: 'https://via.placeholder.com/300x200?text=MySQL+数据库',
-      description: '掌握MySQL数据库设计和优化技巧'
-    },
-    {
-      id: 5,
-      title: 'Python 数据分析',
-      category: '数据科学',
-      price: 349,
-      students: 892,
-      rating: 4.8,
-      image: 'https://via.placeholder.com/300x200?text=Python+数据分析',
-      description: '使用Python进行数据分析和可视化'
-    },
-    {
-      id: 6,
-      title: '机器学习基础',
-      category: '数据科学',
-      price: 399,
-      students: 534,
-      rating: 4.7,
-      image: 'https://via.placeholder.com/300x200?text=机器学习',
-      description: '入门机器学习算法和实践应用'
+  const handleCourseCardClick = (course) => {
+    if (course.link) {
+      navigate(course.link)
+    } else {
+      navigate('/learning')
     }
-  ]
+  }
 
-  const categories = ['全部', '前端开发', '后端开发', '数据库', '数据科学']
+  const courses = COURSE_LIST
 
-  const filteredCourses = selectedCategory === '全部' 
-    ? courses 
-    : courses.filter(course => course.category === selectedCategory)
+  const categories = COURSE_CATEGORIES
+
+  const filteredCourses = useMemo(() => {
+    if (selectedCategory === '全部') {
+      return courses
+    }
+    return courses.filter(course => course.category === selectedCategory)
+  }, [courses, selectedCategory])
+
+  const courseStats = useMemo(() => {
+    const totalStudents = courses.reduce((sum, c) => sum + c.students, 0)
+    const freeCount = courses.filter(c => c.price === 0 || c.price === 'VIP免费').length
+    return {
+      totalCount: courses.length,
+      freeCount,
+      totalStudents: totalStudents.toLocaleString()
+    }
+  }, [courses])
+
+  // Framer Motion 动画变体
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      transition: { duration: 0.2 }
+    }
+  }
+
+  const filterVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3 }
+    }
+  }
 
   return (
-    <div className="courses">
-      <div className="courses-header">
+    <motion.div 
+      className="courses"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* 科技背景 */}
+      <div className="tech-grid-background" />
+      
+      <motion.div 
+        className="courses-header circuit-pattern"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <TechBackground />
         <h1>全部课程</h1>
         <p>选择适合您的课程，开启学习之旅</p>
-      </div>
+      </motion.div>
 
-      <div className="filter-section">
+      <motion.div 
+        className="filter-section"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <h3>课程分类</h3>
-        <div className="category-filters">
-          {categories.map(category => (
-            <button
+        <motion.div 
+          className="category-filters"
+          variants={containerVariants}
+        >
+          {categories.map((category, index) => (
+            <motion.button
               key={category}
               className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
               onClick={() => setSelectedCategory(category)}
+              variants={filterVariants}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 6px 20px rgba(14, 165, 233, 0.3)'
+              }}
+              whileTap={{ scale: 0.95 }}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: index * 0.05 }}
             >
+              {CATEGORY_ICON_MAP[category] ? `${CATEGORY_ICON_MAP[category]} ` : ''}
               {category}
-            </button>
+            </motion.button>
           ))}
+        </motion.div>
+      </motion.div>
+
+      <div className="courses-stats">
+        <div className="stats-summary">
+          <div className="summary-item">
+            <span className="summary-number">{courseStats.totalCount}</span>
+            <span className="summary-label">门课程</span>
+          </div>
+          <div className="summary-item">
+            <span className="summary-number">{filteredCourses.length}</span>
+            <span className="summary-label">当前显示</span>
+          </div>
+          <div className="summary-item">
+            <span className="summary-number">{courseStats.freeCount}</span>
+            <span className="summary-label">免费课程</span>
+          </div>
+          <div className="summary-item">
+            <span className="summary-number">{courseStats.totalStudents}</span>
+            <span className="summary-label">总学员</span>
+          </div>
         </div>
       </div>
 
-      <div className="courses-grid">
-        {filteredCourses.map(course => (
-          <div key={course.id} className="course-card">
+      <motion.div 
+        className="courses-grid"
+        layout
+      >
+        <AnimatePresence mode="wait">
+          {filteredCourses.map((course, index) => (
+            <motion.div 
+              key={course.id} 
+              className={`course-card ${course.type}-course clickable neon-glow hologram`} 
+              onClick={() => handleCourseCardClick(course)}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              custom={index}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ 
+                scale: 1.05,
+                y: -10,
+                boxShadow: '0 25px 50px rgba(14, 165, 233, 0.25)',
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
             <img src={course.image} alt={course.title} />
             <div className="course-content">
               <div className="course-category">{course.category}</div>
+              {course.badge && (
+                <div className={`course-badge ${course.type}`}>{course.badge}</div>
+              )}
               <h3>{course.title}</h3>
               <p>{course.description}</p>
+              
+              {course.features && (
+                <div className="course-features">
+                  {course.features.map((feature, index) => (
+                    <span key={index} className="course-feature-tag">{feature}</span>
+                  ))}
+                </div>
+              )}
+              
               <div className="course-stats">
                 <span className="rating">⭐ {course.rating}</span>
                 <span className="students">👥 {course.students} 学员</span>
               </div>
               <div className="course-footer">
-                <span className="price">￥{course.price}</span>
-                <button className="btn-primary enroll-btn" onClick={() => handleEnrollCourse(course.title)}>立即报名</button>
+                <span className={`price ${course.price === 0 || course.price === 'VIP免费' ? 'free' : 'paid'}`}>
+                  {course.price === 0 ? '免费' : 
+                   course.price === 'VIP免费' ? 'VIP免费' : 
+                   `￥${course.price}`}
+                </span>
+                <motion.button 
+                  className="btn-primary enroll-btn" 
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleEnrollCourse(course)
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {course.price === 0 ? '🆓 免费学习' :
+                   course.price === 'VIP免费' ? '🎯 立即学习' :
+                   '💎 立即报名'}
+                </motion.button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </div>
+        </AnimatePresence>
+      </motion.div>
+    </motion.div>
   )
 }
 

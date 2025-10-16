@@ -1,0 +1,330 @@
+.gesp-level-selector {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gesp-level-selector.locked {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.gesp-level-selector.locked .selector-card {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.selector-card {
+  background: var(--gradient-card);
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gesp-level-selector:hover:not(.locked) .selector-card {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.gesp-level-selector.completed .selector-card {
+  border-color: var(--success-color);
+  background: linear-gradient(135deg, #d4edda05, #ffffff);
+}
+
+.gesp-level-selector.current .selector-card {
+  border-color: #ffc107;
+  background: linear-gradient(135deg, #fff3cd05, #ffffff);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.level-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.level-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.level-number {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.level-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.level-title {
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.level-subtitle {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.level-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.meta-item {
+  text-align: center;
+  flex: 1;
+}
+
+.meta-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+.meta-value {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.level-description {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.level-description p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.level-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--light-color);
+  border-radius: 8px;
+}
+
+.level-stats .stat-item {
+  text-align: center;
+}
+
+.level-stats .stat-number {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.level-stats .stat-label {
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.selector-footer {
+  margin-top: auto;
+}
+
+.locked-indicator {
+  text-align: center;
+  color: var(--secondary-color);
+  padding: 1rem;
+}
+
+.lock-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.lock-text {
+  font-size: 0.9rem;
+}
+
+.action-area {
+  text-align: center;
+}
+
+.completed-badge,
+.current-badge {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.completed-badge {
+  background: var(--success-color);
+  color: white;
+}
+
+.current-badge {
+  background: #ffc107;
+  color: #212529;
+}
+
+.enter-btn {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 悬停覆盖层 */
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 123, 255, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.gesp-level-selector.hovered:not(.locked) .hover-overlay {
+  opacity: 1;
+}
+
+.hover-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.hover-content h5 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hover-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.hover-content li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.hover-cta {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .selector-card {
+    padding: 1rem;
+  }
+  
+  .level-badge {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .level-icon {
+    font-size: 1.4rem;
+  }
+  
+  .level-number {
+    font-size: 0.85rem;
+  }
+  
+  .level-title {
+    font-size: 1.1rem;
+  }
+  
+  .level-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .meta-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+  }
+  
+  .meta-label,
+  .meta-value {
+    display: inline;
+  }
+  
+  .level-stats {
+    padding: 0.75rem;
+  }
+  
+  .level-stats .stat-number {
+    font-size: 1rem;
+  }
+  
+  .hover-content {
+    padding: 1rem;
+  }
+  
+  .hover-content h5 {
+    font-size: 1rem;
+  }
+  
+  .hover-content li {
+    font-size: 0.8rem;
+  }
+}
+
+
+

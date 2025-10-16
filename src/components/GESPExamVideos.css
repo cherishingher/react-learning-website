@@ -1,0 +1,443 @@
+.gesp-exam-videos {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.videos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.header-info h3 {
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.header-info p {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.admin-actions .admin-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+/* 考试时间轴 */
+.exam-timeline h4 {
+  color: var(--dark-color);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  bottom: -20px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-marker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item.not-started .timeline-marker {
+  background: #6c757d;
+  color: white;
+}
+
+.timeline-item.in-progress .timeline-marker {
+  background: linear-gradient(45deg, #ffc107, #e0a800);
+  color: #212529;
+}
+
+.timeline-item.completed .timeline-marker {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+}
+
+.exam-number {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.timeline-content {
+  flex: 1;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-item.not-started .timeline-content {
+  border-color: #dee2e6;
+  opacity: 0.8;
+}
+
+.timeline-item.in-progress .timeline-content {
+  border-color: #ffc107;
+  background: linear-gradient(135deg, #fff9e6, #ffffff);
+}
+
+.timeline-item.completed .timeline-content {
+  border-color: #28a745;
+  background: linear-gradient(135deg, #e8f5e8, #ffffff);
+}
+
+.exam-basic-info h5 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.exam-subtitle {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.exam-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.exam-date,
+.exam-difficulty {
+  background: var(--light-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+/* 视频进度显示 */
+.video-progress {
+  margin-bottom: 1.5rem;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.progress-percent {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+  transition: width 0.3s ease;
+}
+
+/* 视频章节区域 */
+.video-sections {
+  margin-bottom: 1.5rem;
+}
+
+.video-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.video-section.overview {
+  border-left-color: #17a2b8;
+}
+
+.video-section.problem {
+  border-left-color: #28a745;
+}
+
+.video-section.summary {
+  border-left-color: #ffc107;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-icon {
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-weight: 600;
+  color: var(--dark-color);
+  flex: 1;
+}
+
+.section-duration {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+  background: var(--bg-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+}
+
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.problem-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.problem-duration {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.problem-topics {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.topic-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.15rem 0.4rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.difficulty-badge {
+  background: var(--warning-color);
+  color: #212529;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.upload-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.content-placeholder {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px dashed #ccc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-style: italic;
+}
+
+.content-placeholder p {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* 考试统计 */
+.exam-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: var(--light-color);
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.exam-stats .stat-item {
+  text-align: center;
+}
+
+.exam-stats .stat-label {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.exam-stats .stat-value {
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* 上传统计区域 */
+.upload-statistics {
+  background: var(--light-color);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+.upload-statistics h4 {
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.upload-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.upload-stat-card {
+  background: var(--gradient-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.upload-stat-card .stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.upload-stat-card .stat-label {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .gesp-exam-videos {
+    padding: 1.5rem;
+  }
+  
+  .videos-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .timeline-item::before {
+    display: none;
+  }
+  
+  .timeline-marker {
+    align-self: center;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-content {
+    margin-left: 0;
+  }
+  
+  .exam-meta {
+    justify-content: center;
+  }
+  
+  .problems-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .exam-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .upload-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+
+

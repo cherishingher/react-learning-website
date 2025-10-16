@@ -50,9 +50,11 @@
   gap: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: white;
+  background: var(--gradient-card);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .contact-icon {
@@ -77,9 +79,11 @@
   gap: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: white;
+  background: var(--gradient-card);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .office-locations .contact-icon {
@@ -176,12 +180,13 @@
 .social-link {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 20px;
   text-decoration: none;
   color: var(--dark-color);
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .social-link:hover {
@@ -192,11 +197,13 @@
 
 /* 联系表单 */
 .contact-form {
-  background: white;
+  background: var(--gradient-card);
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   height: fit-content;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .contact-form h2 {
@@ -266,11 +273,13 @@
 }
 
 .faq-item {
-  background: white;
+  background: var(--gradient-card);
   padding: 1.5rem;
   margin-bottom: 1rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .faq-item h4 {

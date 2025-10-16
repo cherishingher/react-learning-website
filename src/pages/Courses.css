@@ -1,29 +1,57 @@
 .courses {
   padding: 2rem 0;
+  background: var(--bg-secondary);
+  transition: background 0.5s ease;
 }
 
 .courses-header {
   text-align: center;
   margin-bottom: 3rem;
+  padding: 3rem 2rem;
+  background: var(--gradient-hero);
+  color: white;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+  transition: background 0.5s ease;
+}
+
+.courses-header::before {
+  content: '{ }';
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 100px;
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.08);
+  font-weight: bold;
+  pointer-events: none;
 }
 
 .courses-header h1 {
-  font-size: 2.5rem;
-  color: var(--dark-color);
+  font-size: 3rem;
+  color: white;
   margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .courses-header p {
-  font-size: 1.1rem;
-  color: var(--secondary-color);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95);
+  position: relative;
+  z-index: 1;
 }
 
 /* 过滤器区域 */
 .filter-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--light-color);
+  background: var(--gradient-feature);
   border-radius: var(--border-radius);
+  transition: background 0.5s ease;
 }
 
 .filter-section h3 {
@@ -38,24 +66,114 @@
 }
 
 .filter-btn {
-  padding: 0.5rem 1rem;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 25px;
-  color: var(--dark-color);
-  font-weight: 500;
-  transition: all 0.3s ease;
+  padding: 0.6rem 1.3rem;
+  background: var(--bg-primary);
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 30px;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--gradient-tech);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-normal), height var(--transition-normal);
+  z-index: -1;
 }
 
 .filter-btn:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
 }
 
 .filter-btn.active {
-  background: var(--primary-color);
+  background: var(--gradient-tech);
   color: white;
-  border-color: var(--primary-color);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.filter-btn.active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* 课程统计区域 */
+.courses-stats {
+  background: var(--gradient-card);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all var(--transition-normal) ease;
+  backdrop-filter: blur(10px);
+}
+
+.courses-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-tech);
+}
+
+.courses-stats:hover {
+  box-shadow: var(--box-shadow-hover);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.stats-summary {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.summary-item {
+  text-align: center;
+  min-width: 120px;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast) ease;
+}
+
+.summary-item:hover {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  transform: scale(1.05);
+}
+
+.summary-number {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--gradient-tech);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.summary-label {
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+  font-weight: 500;
 }
 
 /* 课程网格 */
@@ -66,11 +184,13 @@
 }
 
 .course-card {
-  background: white;
+  background: var(--gradient-card);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   overflow: hidden;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
 }
 
 .course-card:hover {
@@ -96,6 +216,102 @@
   border-radius: 15px;
   font-size: 0.8rem;
   margin-bottom: 1rem;
+}
+
+/* 课程徽章 */
+.course-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  z-index: 2;
+}
+
+.course-badge.certification {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #333;
+}
+
+.course-badge.programming {
+  background: linear-gradient(45deg, #28a745, #20c997);
+}
+
+.course-badge.competition {
+  background: linear-gradient(45deg, #E74C3C, #C0392B);
+}
+
+.course-badge.robotics {
+  background: linear-gradient(45deg, #FF9800, #F57C00);
+}
+
+.course-badge.foundation {
+  background: linear-gradient(45deg, #2196F3, #1976D2);
+}
+
+/* 课程特色标签 */
+.course-features {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.course-feature-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* 价格样式 */
+.price.free {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.price.paid {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* 特殊课程卡片样式 */
+.course-card.certification-course {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.course-card.certification-course:hover {
+  border-color: #FFD700;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.course-card.programming-course:hover {
+  border-color: #28a745;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+}
+
+.course-card.competition-course:hover {
+  border-color: #E74C3C;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2);
+}
+
+.course-card.robotics-course:hover {
+  border-color: #FF9800;
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.2);
+}
+
+.course-card.foundation-course:hover {
+  border-color: #2196F3;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.2);
 }
 
 .course-content h3 {

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import CertificateCarousel from '../components/CertificateCarousel'
 import './About.css'
 
 const About = () => {
@@ -131,14 +130,6 @@ const About = () => {
               <div className="stat-number">24/7</div>
               <div className="stat-label">在线支持</div>
             </div>
-          </div>
-          
-          <div className="achievements-section">
-            <h3>🏆 学员获奖展示</h3>
-            <p className="achievements-description">
-              我们的学员在各类编程竞赛、科技创新大赛中屡获佳绩，这些荣誉是对我们教学质量的最好证明
-            </p>
-            <CertificateCarousel />
           </div>
         </div>
       </section>

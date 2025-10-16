@@ -1,0 +1,270 @@
+.competition-filter {
+  background: var(--gradient-card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(14, 165, 233, 0.1);
+}
+
+.filter-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filter-header h3 {
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.filter-header p {
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.framework-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.framework-tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.framework-tab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.framework-tab.active {
+  border-color: var(--framework-color);
+  background: linear-gradient(135deg, var(--framework-color)10, var(--framework-color)05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.framework-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.framework-info {
+  flex: 1;
+}
+
+.framework-name {
+  font-weight: 600;
+  color: var(--dark-color);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.framework-count {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* 框架描述 */
+.framework-descriptions {
+  margin-bottom: 2rem;
+}
+
+.framework-desc {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.framework-desc.gesp {
+  background: linear-gradient(135deg, #FF6B3510, #FF6B3505);
+  border-left: 4px solid #FF6B35;
+}
+
+.framework-desc.csp-j {
+  background: linear-gradient(135deg, #4ECDC410, #4ECDC405);
+  border-left: 4px solid #4ECDC4;
+}
+
+.framework-desc.csp-s {
+  background: linear-gradient(135deg, #E74C3C10, #E74C3C05);
+  border-left: 4px solid #E74C3C;
+}
+
+.framework-desc.noip {
+  background: linear-gradient(135deg, #9B59B610, #9B59B605);
+  border-left: 4px solid #9B59B6;
+}
+
+.framework-desc h4 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.framework-desc p {
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.framework-features {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* 学习路径 */
+.learning-path {
+  background: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.learning-path h4 {
+  color: var(--dark-color);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.path-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.path-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 120px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.step-name {
+  font-weight: 600;
+  color: var(--dark-color);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.step-desc {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.path-arrow {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .competition-filter {
+    padding: 1.5rem;
+  }
+  
+  .framework-tabs {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .framework-tab {
+    padding: 0.75rem;
+  }
+  
+  .framework-icon {
+    font-size: 1.5rem;
+  }
+  
+  .framework-name {
+    font-size: 0.9rem;
+  }
+  
+  .framework-count {
+    font-size: 0.8rem;
+  }
+  
+  .framework-desc {
+    padding: 1rem;
+  }
+  
+  .framework-desc h4 {
+    font-size: 1rem;
+  }
+  
+  .framework-desc p {
+    font-size: 0.9rem;
+  }
+  
+  .path-flow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .path-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .path-step {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .step-name {
+    font-size: 0.85rem;
+  }
+  
+  .step-desc {
+    font-size: 0.75rem;
+  }
+}
+
+
+
