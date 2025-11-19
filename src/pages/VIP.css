@@ -98,6 +98,15 @@
   margin: -20px -20px 2rem -20px;
 }
 
+.vip-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
 .vip-hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -117,6 +126,31 @@
   border-radius: 25px;
   font-weight: 600;
   display: inline-block;
+}
+
+.vip-hero .falling-text-container {
+  max-width: 760px;
+  min-height: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 25px 45px rgba(217, 140, 0, 0.3);
+}
+
+.vip-hero .falling-text-word {
+  color: #2b1f04;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 25px rgba(255, 166, 0, 0.2);
+}
+
+.vip-hero .falling-text-word.highlighted {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.95), rgba(255, 140, 0, 0.95));
+  color: #3b2b00;
+  box-shadow: 0 16px 35px rgba(255, 168, 0, 0.35);
+}
+
+.vip-hero .falling-text-hint {
+  background: rgba(255, 255, 255, 0.25);
+  color: rgba(87, 65, 2, 0.8);
 }
 
 .vip-content {

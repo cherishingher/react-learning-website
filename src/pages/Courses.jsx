@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './Courses.css'
 import { COURSE_LIST, COURSE_CATEGORIES, CATEGORY_ICON_MAP } from '../data/courseCatalog'
 import TechBackground from '../components/TechBackground'
+import FallingText from '../components/FallingText'
+import GradualBlur from '../components/GradualBlur'
+import DarkVeil from '../components/DarkVeil'
 import '../components/TechBackground.css'
 
 const Courses = () => {
@@ -93,7 +96,19 @@ const Courses = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      style={{ position: 'relative' }}
     >
+      {/* 顶部渐变模糊效果 */}
+      <GradualBlur
+        position="top"
+        height="6rem"
+        strength={1.5}
+        divCount={4}
+        curve="ease-out"
+        opacity={0.9}
+        zIndex={10}
+      />
+      
       {/* 科技背景 */}
       <div className="tech-grid-background" />
       
@@ -102,10 +117,32 @@ const Courses = () => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        style={{ position: 'relative', overflow: 'hidden' }}
       >
-        <TechBackground />
-        <h1>全部课程</h1>
-        <p>选择适合您的课程，开启学习之旅</p>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <DarkVeil 
+            hueShift={270}
+            noiseIntensity={0.02}
+            scanlineIntensity={0.05}
+            speed={0.2}
+            scanlineFrequency={0.5}
+            warpAmount={0.2}
+            resolutionScale={0.6}
+          />
+        </div>
+        <h1 style={{ position: 'relative', zIndex: 1 }}>全部课程</h1>
+        <p style={{ position: 'relative', zIndex: 1 }}>选择适合您的课程，开启学习之旅</p>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <FallingText
+            text="AI算法、机器人编程、创意图形、竞赛冲刺……多维课程体系为不同阶段的学习者打造成长路径。"
+            highlightWords={['AI', '算法', '机器人', '编程', '竞赛']}
+            trigger="hover"
+            backgroundColor="rgba(255, 255, 255, 0.08)"
+            fontSize="1.6rem"
+            gravity={0.5}
+            className="courses-hero-falling-text"
+          />
+        </div>
       </motion.div>
 
       <motion.div 
@@ -233,6 +270,17 @@ const Courses = () => {
         ))}
         </AnimatePresence>
       </motion.div>
+      
+      {/* 底部渐变模糊效果 */}
+      <GradualBlur
+        position="bottom"
+        height="6rem"
+        strength={1.5}
+        divCount={4}
+        curve="ease-out"
+        opacity={0.9}
+        zIndex={10}
+      />
     </motion.div>
   )
 }

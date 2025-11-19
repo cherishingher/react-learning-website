@@ -11,17 +11,43 @@
   margin: -20px -20px 2rem -20px;
 }
 
+.about-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
 .about-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
-.about-hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
+.about-hero .falling-text-container {
+  max-width: 720px;
+  min-height: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.about-hero .falling-text-word {
+  color: #f9fafc;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.about-hero .falling-text-word.highlighted {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.95));
+  color: #342955;
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.35);
+}
+
+.about-hero .falling-text-hint {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* 内容区域 */
@@ -88,98 +114,36 @@
   line-height: 1.6;
 }
 
-/* 简洁团队网格 */
-.team-simple-grid {
+/* 团队展示 */
+.team-subtitle {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.team-profile-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.team-member-simple {
-  text-align: center;
+.team-profile-card .pc-card {
+  height: 55svh;
+  max-height: 460px;
 }
 
-.member-avatar-button {
-  cursor: pointer;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s ease;
+.team-profile-card .pc-user-info {
+  background: rgba(15, 23, 42, 0.45);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
-.member-avatar-button:hover {
-  transform: translateY(-5px);
-}
-
-.member-avatar-button img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid var(--light-color);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.member-avatar-button:hover img {
-  border-color: var(--primary-color);
-  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.3);
-  transform: scale(1.05);
-}
-
-.member-avatar-button::after {
-  content: '点击查看详情';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-.member-avatar-button:hover::after {
-  opacity: 1;
-}
-
-.member-simple-info h4 {
-  margin-bottom: 0.5rem;
-  color: var(--dark-color);
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.member-simple-position {
-  color: var(--primary-color);
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.member-simple-title {
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.team-description {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.team-description p {
-  color: var(--secondary-color);
-  font-style: italic;
-  font-size: 0.95rem;
+.team-profile-card .pc-contact-btn {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.35);
 }
 
 /* 统计数据 */
@@ -242,25 +206,12 @@
     margin: 2rem -1rem;
   }
   
-  .team-simple-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .team-chroma-wrapper {
+    min-height: 360px;
   }
-  
-  .member-avatar-button img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .member-simple-info h4 {
-    font-size: 1.2rem;
-  }
-  
-  .member-simple-position {
-    font-size: 0.95rem;
-  }
-  
-  .member-simple-title {
+
+  .team-note {
     font-size: 0.85rem;
+    letter-spacing: 0.04em;
   }
 }

@@ -15,6 +15,10 @@
   overflow: hidden;
   animation: fadeInUp 0.8s ease-out;
   transition: background 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .courses-header::before {
@@ -43,6 +47,31 @@
   color: rgba(255, 255, 255, 0.95);
   position: relative;
   z-index: 1;
+}
+
+.courses-header .falling-text-container {
+  margin: 2.5rem auto 0;
+  max-width: 840px;
+  min-height: 280px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+}
+
+.courses-header .falling-text-word {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.courses-header .falling-text-word.highlighted {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.92), rgba(14, 165, 233, 0.95));
+  color: #0f172a;
+  box-shadow: 0 16px 35px rgba(14, 165, 233, 0.35);
+}
+
+.courses-header .falling-text-hint {
+  background: rgba(15, 23, 42, 0.25);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* 过滤器区域 */

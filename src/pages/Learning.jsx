@@ -1,10 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import VideoPlayer from '../components/VideoPlayer'
 import CourseCard from '../components/CourseCard'
 import CompetitionFilter from '../components/CompetitionFilter'
 import UserContext from '../context/UserContext'
 import './Learning.css'
+import HeroStats from '../components/HeroStats'
+import GradualBlur from '../components/GradualBlur'
+import DarkVeil from '../components/DarkVeil'
 
 const Learning = () => {
   const navigate = useNavigate()
@@ -12,6 +15,9 @@ const Learning = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedCourse, setSelectedCourse] = useState(null)
   const [selectedFramework, setSelectedFramework] = useState('all')
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const COURSES_PER_PAGE = 9
 
   // 课程数据 - 实际项目中应该从API获取
   const courses = {
@@ -331,6 +337,10 @@ const Learning = () => {
     return coursesToShow
   }
 
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedCategory, selectedFramework])
+
   const handleFrameworkFilter = (framework) => {
     setSelectedFramework(framework)
   }
@@ -355,10 +365,62 @@ const Learning = () => {
     return user?.isVip || user?.purchasedCourses?.includes(course.id)
   }
 
+  const currentCourses = getCurrentCourses()
+  const totalCourses = currentCourses.length
+  const totalPages = Math.max(1, Math.ceil(totalCourses / COURSES_PER_PAGE))
+  const paginatedCourses = currentCourses.slice(
+    (currentPage - 1) * COURSES_PER_PAGE,
+    currentPage * COURSES_PER_PAGE
+  )
+  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1)
+
+  const freeCourseCount = useMemo(
+    () => currentCourses.filter((course) => course.isFree).length,
+    [currentCourses]
+  )
+  const vipCourseCount = totalCourses - freeCourseCount
+
+  const learningStats = useMemo(
+    () => [
+      { value: `${totalCourses}`, label: '\u603b\u8bfe\u7a0b' },
+      { value: `${freeCourseCount}`, label: '\u514d\u8d39\u5185\u5bb9' },
+      { value: `${Math.max(vipCourseCount, 0)}`, label: 'VIP\u4f18\u60e0' }
+    ],
+    [totalCourses, freeCourseCount, vipCourseCount]
+  )
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages)
+    }
+  }, [currentPage, totalPages])
+
   return (
-    <div className="learning">
-      <div className="learning-hero">
-        <div className="hero-content">
+    <div className="learning" style={{ position: 'relative' }}>
+      {/* 顶部渐变模糊效果 */}
+      <GradualBlur
+        position="top"
+        height="6rem"
+        strength={1.5}
+        divCount={4}
+        curve="ease-out"
+        opacity={0.9}
+        zIndex={10}
+      />
+      
+      <div className="learning-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <DarkVeil 
+            hueShift={270}
+            noiseIntensity={0.02}
+            scanlineIntensity={0.05}
+            speed={0.2}
+            scanlineFrequency={0.5}
+            warpAmount={0.2}
+            resolutionScale={0.6}
+          />
+        </div>
+        <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
           <h1>在线学习中心</h1>
           <p>掌握编程技能，开启技术人生</p>
           {!isLoggedIn && (
@@ -390,6 +452,7 @@ const Learning = () => {
               )}
             </div>
           )}
+          <HeroStats stats={learningStats} />
         </div>
       </div>
 
@@ -427,7 +490,7 @@ const Learning = () => {
         {/* C++竞赛分类筛选器 */}
         {selectedCategory === 'cpp' && (
           <CompetitionFilter
-            courses={getCurrentCourses()}
+            courses={currentCourses}
             onFilterChange={handleFrameworkFilter}
             selectedFramework={selectedFramework}
           />
@@ -448,12 +511,15 @@ const Learning = () => {
                 )}
               </h3>
               <div className="course-count">
-                共 {getCurrentCourses().length} 门课程
+                共 {totalCourses} 门课程
+                {totalPages > 1 && (
+                  <span className="page-indicator">第 {currentPage}/{totalPages} 页</span>
+                )}
               </div>
             </div>
 
             <div className="courses-list">
-              {getCurrentCourses().map(course => (
+              {paginatedCourses.map(course => (
                 <CourseCard
                   key={course.id}
                   course={course}
@@ -465,6 +531,39 @@ const Learning = () => {
                 />
               ))}
             </div>
+
+            {totalPages > 1 && (
+              <div className="courses-pagination">
+                <button
+                  className="page-button"
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                >
+                  上一页
+                </button>
+                <div className="page-numbers">
+                  {pageNumbers.map((number) => (
+                    <button
+                      key={number}
+                      className={`page-number ${number === currentPage ? 'active' : ''}`}
+                      onClick={() => setCurrentPage(number)}
+                    >
+                      {number}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  className="page-button"
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                >
+                  下一页
+                </button>
+                <div className="page-info">
+                  第 {currentPage} / {totalPages} 页
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -477,6 +576,17 @@ const Learning = () => {
           />
         )}
       </div>
+      
+      {/* 底部渐变模糊效果 */}
+      <GradualBlur
+        position="bottom"
+        height="6rem"
+        strength={1.5}
+        divCount={4}
+        curve="ease-out"
+        opacity={0.9}
+        zIndex={10}
+      />
     </div>
   )
 }

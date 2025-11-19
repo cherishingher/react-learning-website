@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import FallingText from '../components/FallingText'
+import ProfileCard from '../components/ProfileCard'
 import './About.css'
 
 const About = () => {
@@ -15,7 +17,12 @@ const About = () => {
       education: ['二十年教育投资经历'],
       title: '教育行业资深投资人',
       description: '拥有二十年丰富的教育行业投资经历，对教育市场有深刻洞察，致力于推动教育科技创新发展。',
-      avatar: 'https://ui-avatars.com/api/?name=张泽龙&background=667eea&color=fff&size=200&font-size=0.6'
+      avatar: 'https://ui-avatars.com/api/?name=张泽龙&background=f97316&color=fff&size=200&font-size=0.48',
+      subtitle: 'CEO · 战略投资人',
+      handle: '@ZhaoZelong',
+      accentColor: '#f97316',
+      gradient: 'linear-gradient(145deg, #f97316, #0b1220)',
+      profileUrl: '/staff/zhazezhelong'
     },
     {
       id: 'huoyinghao', 
@@ -26,7 +33,12 @@ const About = () => {
       education: ['计算机硕士研究生', '数学与计算机双学士学位'],
       title: '计算机学会计算机视觉专委委员',
       description: '专业技术背景深厚，在计算机视觉和编程教学领域有丰富经验，负责技术体系建设和教学质量把控。',
-      avatar: '/images/team/huoyinghao.jpg'
+      avatar: '/images/team/huoyinghao.jpg',
+      subtitle: 'CTO · 算法竞赛总监',
+      handle: '@HuoTech',
+      accentColor: '#38bdf8',
+      gradient: 'linear-gradient(160deg, #38bdf8, #0b1220)',
+      profileUrl: '/staff/huoyinghao'
     },
     {
       id: 'zhangjinlin',
@@ -37,7 +49,12 @@ const About = () => {
       education: ['南京航空航天大学'],
       title: '八年教育规划师',
       description: '南京航空航天大学毕业，拥有八年教育规划经验，专注于课程体系设计和教学质量提升。',
-      avatar: 'https://ui-avatars.com/api/?name=张金林&background=28a745&color=fff&size=200&font-size=0.6'
+      avatar: 'https://ui-avatars.com/api/?name=张金林&background=a855f7&color=fff&size=200&font-size=0.48',
+      subtitle: '教学总监 · 课程架构师',
+      handle: '@LynnZhang',
+      accentColor: '#a855f7',
+      gradient: 'linear-gradient(200deg, #a855f7, #0b1220)',
+      profileUrl: '/staff/zhangjinlin'
     }
   ]
 
@@ -47,8 +64,18 @@ const About = () => {
   return (
     <div className="about">
       <section className="about-hero">
-        <h1>关于我们</h1>
-        <p>致力于为每个人提供优质的在线学习体验</p>
+        <div className="about-hero-content">
+          <h1>关于我们</h1>
+          <FallingText
+            text="我们致力于用科技连接教育，让每一位学习者都能获得优质、个性化的成长体验。"
+            highlightWords={['科技', '教育', '学习者', '优质', '成长']}
+            trigger="load"
+            backgroundColor="rgba(255, 255, 255, 0.06)"
+            fontSize="1.8rem"
+            gravity={0.4}
+            className="about-hero-falling-text"
+          />
+        </div>
       </section>
 
       <section className="about-content">
@@ -89,25 +116,27 @@ const About = () => {
 
         <div className="team">
           <h2>我们的团队</h2>
-          <div className="team-simple-grid">
+          <p className="team-subtitle">
+            一支深耕算法竞赛、课程研发与教学运营的专家团队，为学员提供全链路支持。
+          </p>
+          <div className="team-profile-grid">
             {teamMembers.map((member) => (
-              <div key={member.id} className="team-member-simple">
-                <div 
-                  className="member-avatar-button"
-                  onClick={() => handleViewProfile(member.id)}
-                >
-                  <img src={member.avatar} alt={member.name} />
-                </div>
-                <div className="member-simple-info">
-                  <h4>{member.name}</h4>
-                  <p className="member-simple-position">{member.position}</p>
-                  <p className="member-simple-title">{member.title}</p>
-                </div>
-              </div>
+              <ProfileCard
+                key={member.id}
+                className="team-profile-card"
+                avatarUrl={member.avatar}
+                miniAvatarUrl={member.avatar}
+                name={member.name}
+                title={`${member.position} · ${member.role}`}
+                handle={member.handle || member.id}
+                status={member.subtitle || member.title}
+                contactText="查看详情"
+                enableTilt
+                enableMobileTilt={false}
+                showUserInfo
+                onContactClick={() => handleViewProfile(member.id)}
+              />
             ))}
-          </div>
-          <div className="team-description">
-            <p>点击头像了解更多团队成员详情</p>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
+import FallingText from '../components/FallingText'
 import './VIP.css'
 
 const VIP = () => {
@@ -107,6 +108,15 @@ const VIP = () => {
           <div className="vip-highlight">
             <span>🚀 立即节省高达 70% 的学习成本</span>
           </div>
+          <FallingText
+            text="解锁所有精品课程、专属导师团、进阶学习路径，让你的成长快人一步。"
+            highlightWords={['精品课程', '专属', '导师', '成长', '进阶']}
+            trigger="hover"
+            backgroundColor="rgba(255, 255, 255, 0.15)"
+            fontSize="1.7rem"
+            gravity={0.45}
+            className="vip-hero-falling-text"
+          />
         </div>
       </div>
 

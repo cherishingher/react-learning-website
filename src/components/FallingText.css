@@ -1,0 +1,54 @@
+.falling-text-container {
+  width: 100%;
+  min-height: 320px;
+  border-radius: 24px;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.falling-text-container:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 28px 60px rgba(99, 102, 241, 0.2);
+}
+
+.falling-text-word {
+  color: var(--text-primary, #0f172a);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.18);
+  cursor: grab;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.falling-text-word:active {
+  cursor: grabbing;
+}
+
+.falling-text-word.highlighted,
+.falling-text-word.highlighted:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(14, 165, 233, 0.95));
+  color: #ffffff;
+  box-shadow: 0 16px 35px rgba(99, 102, 241, 0.32);
+}
+
+.falling-text-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.9);
+  background: rgba(15, 23, 42, 0.05);
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.falling-text-hint.wireframes {
+  background: rgba(15, 118, 110, 0.15);
+  color: rgba(20, 184, 166, 0.85);
+}

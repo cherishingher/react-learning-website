@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './VideoPlayer.css'
 
 const VideoPlayer = ({ course, canWatch, onClose, onPurchase }) => {
@@ -57,8 +58,25 @@ const VideoPlayer = ({ course, canWatch, onClose, onPurchase }) => {
 
   const progressPercent = duration ? (currentTime / duration) * 100 : 0
 
-  return (
-    <div className="video-player-overlay">
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return undefined
+    }
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [])
+
+  if (typeof document === 'undefined') {
+    return null
+  }
+
+  return createPortal(
+    <div className="video-player-overlay" role="dialog" aria-modal="true">
       <div className="video-player-modal">
         <div className="video-player-header">
           <div className="video-info">
@@ -187,7 +205,7 @@ const VideoPlayer = ({ course, canWatch, onClose, onPurchase }) => {
         </div>
       </div>
     </div>
-  )
+  , document.body)
 }
 
 export default VideoPlayer

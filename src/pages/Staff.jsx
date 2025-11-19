@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import ProfileCard from '../components/ProfileCard'
 import './Staff.css'
 
 const Staff = () => {
@@ -16,7 +17,9 @@ const Staff = () => {
       education: ['二十年教育投资经历'],
       title: '教育行业资深投资人',
       description: '拥有二十年丰富的教育行业投资经历，对教育市场有深刻洞察，致力于推动教育科技创新发展。',
-      avatar: 'https://ui-avatars.com/api/?name=张泽龙&background=667eea&color=fff&size=300&font-size=0.6',
+      avatar: 'https://ui-avatars.com/api/?name=张泽龙&background=f97316&color=fff&size=400&font-size=0.45',
+      handle: 'ZhaoZelong',
+      status: '在线 · 战略投资',
       details: {
         experience: '20年',
         specialty: '教育投资、战略规划、市场分析',
@@ -43,6 +46,8 @@ const Staff = () => {
       title: '计算机学会计算机视觉专委委员',
       description: '专业技术背景深厚，在计算机视觉和编程教学领域有丰富经验，负责技术体系建设和教学质量把控。',
       avatar: '/images/team/huoyinghao.jpg',
+      handle: 'HuoTech',
+      status: '在线 · 算法竞赛',
       details: {
         experience: '8年',
         specialty: '计算机视觉、人工智能、编程教育',
@@ -68,7 +73,9 @@ const Staff = () => {
       education: ['南京航空航天大学'],
       title: '八年教育规划师',
       description: '南京航空航天大学毕业，拥有八年教育规划经验，专注于课程体系设计和教学质量提升。',
-      avatar: 'https://ui-avatars.com/api/?name=张金林&background=28a745&color=fff&size=300&font-size=0.6',
+      avatar: 'https://ui-avatars.com/api/?name=张金林&background=a855f7&color=fff&size=400&font-size=0.45',
+      handle: 'LynnZhang',
+      status: '在线 · 教学管理',
       details: {
         experience: '8年',
         specialty: '教育规划、课程设计、教学管理',
@@ -101,10 +108,6 @@ const Staff = () => {
     )
   }
 
-  const handleContactPhone = () => {
-    window.open(`tel:${staff.details.contact.phone}`)
-  }
-
   const handleContactEmail = () => {
     window.open(`mailto:${staff.details.contact.email}`)
   }
@@ -112,17 +115,24 @@ const Staff = () => {
   return (
     <div className="staff">
       <div className="staff-hero">
-        <div className="staff-hero-content">
-          <div className="staff-avatar">
-            <img src={staff.avatar} alt={staff.name} />
-          </div>
-          <div className="staff-basic-info">
-            <h1>{staff.name}</h1>
-            <div className="staff-position">{staff.position}</div>
-            <div className="staff-role">📍 {staff.role}</div>
-            <div className="staff-campus">🏢 {staff.campus}</div>
-            <div className="staff-experience">⏱️ {staff.details.experience} 工作经验</div>
-          </div>
+        <ProfileCard
+          className="staff-profile-card"
+          avatarUrl={staff.avatar}
+          miniAvatarUrl={staff.avatar}
+          name={staff.name}
+          title={`${staff.position} · ${staff.role}`}
+          handle={staff.handle || staff.id}
+          status={staff.status || `${staff.details.experience} 经验`}
+          contactText="联系我"
+          enableTilt
+          enableMobileTilt={false}
+          showUserInfo
+          onContactClick={handleContactEmail}
+        />
+        <div className="staff-hero-meta">
+          <span className="meta-chip">📍 {staff.campus}</span>
+          <span className="meta-chip">🕒 {staff.details.experience} 经验</span>
+          <span className="meta-chip">🎯 专长：{staff.details.specialty}</span>
         </div>
       </div>
 
@@ -187,9 +197,6 @@ const Staff = () => {
 
             <div className="staff-contact-card">
               <h3>联系方式</h3>
-              <button className="contact-btn" onClick={handleContactPhone}>
-                📞 电话联系
-              </button>
               <button className="contact-btn" onClick={handleContactEmail}>
                 📧 邮件联系
               </button>

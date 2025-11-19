@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
 import GESPLevelSelector from '../components/GESPLevelSelector'
+import FallingText from '../components/FallingText'
 import './GESPLanguage.css'
 
 const GESPLanguage = () => {
@@ -51,6 +52,12 @@ const GESPLanguage = () => {
         '💡 培养创意思维'
       ]
     }
+  }
+
+  const highlightWordsMap = {
+    cpp: ['高效', '算法', '竞赛', '系统'],
+    python: ['人工智能', '数据', '首选', '语言'],
+    scratch: ['图形化', '儿童', '创意', '思维']
   }
 
   const currentLanguage = languageConfig[language]
@@ -167,6 +174,8 @@ const GESPLanguage = () => {
     navigate('/gesp')
   }
 
+  const highlightWords = highlightWordsMap[language] || ['编程', '学习']
+
   return (
     <div className="gesp-language">
       <div className="language-hero" style={{ background: currentLanguage.gradient }}>
@@ -178,7 +187,16 @@ const GESPLanguage = () => {
           <div className="language-title">
             <div className="language-icon-big">{currentLanguage.icon}</div>
             <h1>{currentLanguage.name} GESP考级</h1>
-            <p>{currentLanguage.description}</p>
+            <p className="language-tagline">逐级递进的GESP路线，为孩子打造系统化的编程成长曲线。</p>
+            <FallingText
+              text={currentLanguage.description}
+              highlightWords={highlightWords}
+              trigger="hover"
+              backgroundColor="rgba(255, 255, 255, 0.15)"
+              fontSize="1.5rem"
+              gravity={0.42}
+              className="language-hero-falling-text"
+            />
           </div>
 
           <div className="language-highlights">
@@ -289,6 +307,11 @@ const GESPLanguage = () => {
 }
 
 export default GESPLanguage
+
+
+
+
+
 
 
 

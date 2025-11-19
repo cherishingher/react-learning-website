@@ -12,26 +12,55 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
 }
 
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 
+/* 移除 Prism 全局背景，改为按需加载或简化 */
+/* .prism-background { ... } */
+
+/* 标准化布局容器 */
 .main-content {
   flex: 1;
-  padding: 20px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1280px; /* 增加最大宽度 */
   margin: 0 auto;
+  padding: 0 24px; /* 统一水平内边距 */
+  position: relative;
+  z-index: 1;
+}
+
+/* 响应式设定 */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 16px;
+  }
+}
+
+/* 通用 Grid 布局类 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
   width: 100%;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 15px;
-  }
+.section-container {
+  padding: 60px 0;
+  width: 100%;
 }

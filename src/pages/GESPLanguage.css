@@ -55,6 +55,10 @@
 .language-title {
   text-align: center;
   margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .language-icon-big {
@@ -68,11 +72,36 @@
   font-weight: 700;
 }
 
-.language-title p {
+.language-tagline {
   font-size: 1.3rem;
   opacity: 0.95;
   max-width: 600px;
   margin: 0 auto;
+}
+
+.language-title .falling-text-container {
+  max-width: 760px;
+  min-height: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+}
+
+.language-title .falling-text-word {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.18);
+}
+
+.language-title .falling-text-word.highlighted {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.95), rgba(99, 102, 241, 0.95));
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(14, 165, 233, 0.35);
+}
+
+.language-title .falling-text-hint {
+  background: rgba(15, 23, 42, 0.25);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .language-highlights {

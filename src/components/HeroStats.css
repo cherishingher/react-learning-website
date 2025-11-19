@@ -1,0 +1,66 @@
+.hero-stats-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+  width: 100%;
+  gap: 24px;
+}
+
+.hero-stat-card {
+  background: rgba(17, 24, 39, 0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px 24px;
+  min-width: 160px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 12px rgba(14, 165, 233, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 20px rgba(14, 165, 233, 0.45);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  text-shadow: 0 4px 10px rgba(8, 47, 73, 0.6);
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.6px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-stats-container {
+    gap: 12px;
+  }
+
+  .hero-stat-card {
+    min-width: 120px;
+    padding: 14px 18px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+}
+
+
+
+
+

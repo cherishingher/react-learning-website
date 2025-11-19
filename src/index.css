@@ -6,46 +6,29 @@
   --success-color: #7a9d54;
   --warning-color: #e07b39;
   --danger-color: #d9534f;
-  --light-color: #faf8f5;
+  --light-color: #ffffff; /* Pure white */
   --dark-color: #3e3021;
-  --code-bg: #f5f0e8;
-  --code-color: #8b6f47;
-  --bg-primary: #faf8f5;
-  --bg-secondary: #f5f0e8;
-  --text-primary: #2b1f14;
-  --text-secondary: #645540;
-  --gold-color: #d4a574;
-  --gold-dark: #b8935f;
+  --code-bg: #f8f8f8;
+  --code-color: #333;
+  --bg-primary: #ffffff; /* Pure white */
+  --bg-secondary: #ffffff; /* Pure white */
+  --text-primary: #333333;
+  --text-secondary: #666666;
   
-  /* 米黄渐变色系 */
-  --gradient-primary: linear-gradient(135deg, #f5f0e8 0%, #ede8df 100%);
-  --gradient-tech: linear-gradient(135deg, #d4a574 0%, #c19a6b 50%, #b8935f 100%);
-  --gradient-gold: linear-gradient(135deg, #e8d5b7 0%, #d4a574 50%, #c19a6b 100%);
-  --gradient-code: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 100%);
-  --gradient-success: linear-gradient(135deg, #7a9d54 0%, #a8b896 100%);
-  --gradient-hero: linear-gradient(135deg, #f5f0e8 0%, #ede8df 30%, #e8dfd2 70%, #f5f0e8 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(245, 240, 232, 0.7) 100%);
-  --gradient-feature: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 100%);
+  /* 移除渐变，使用纯色或透明 */
+  --gradient-primary: none;
+  --gradient-tech: #d4a574; /* Fallback to solid color */
+  --gradient-gold: #d4a574;
+  --gradient-card: none;
   
-  /* 米黄阴影效果 */
-  --border-radius: 16px;
-  --box-shadow: 0 4px 20px rgba(212, 165, 116, 0.15), 0 0 0 1px rgba(212, 165, 116, 0.1);
-  --box-shadow-hover: 0 8px 30px rgba(212, 165, 116, 0.25), 0 0 0 1px rgba(212, 165, 116, 0.2);
-  --box-shadow-glow: 0 0 25px rgba(212, 165, 116, 0.4), 0 0 45px rgba(184, 147, 95, 0.2);
+  /* 移除阴影或使用极简边框 */
+  --border-radius: 8px;
+  --box-shadow: none;
+  --box-shadow-hover: none;
   
   /* 动画时长 */
   --transition-fast: 0.2s;
   --transition-normal: 0.3s;
-  --transition-slow: 0.5s;
-  
-  /* 米黄效果颜色 */
-  --neon-gold: #d4a574;
-  --neon-orange: #e07b39;
-  --neon-blue: #6b9dc0;
-  --neon-purple: #9d8fb5;
-  --neon-amber: #c19a6b;
-  --code-rain-color: #6ba9ff;
-  --code-rain-trail: rgba(245, 240, 232, 0.12);
 }
 
 /* 鎏金黑夜晚主题（切换后） */
@@ -56,252 +39,95 @@
   --success-color: #00ff88;
   --warning-color: #ff6b35;
   --danger-color: #ff3366;
-  --light-color: #0f172a;
-  --dark-color: #f1f5f9;
-  --code-bg: #000000;
-  --code-color: #ffd700;
-  --bg-primary: #000000;
-  --bg-secondary: #000000;
-  --text-primary: #f5e6d3;
-  --text-secondary: #d4c4a8;
-  --gold-color: #ffd700;
-  --gold-dark: #d4af37;
-  --cyber-blue: #00d9ff;
-  --cyber-purple: #a78bfa;
+  --light-color: #000000; /* Pure black */
+  --dark-color: #ffffff;
+  --code-bg: #111;
+  --code-color: #eee;
+  --bg-primary: #000000; /* Pure black */
+  --bg-secondary: #000000; /* Pure black */
+  --text-primary: #eeeeee;
+  --text-secondary: #aaaaaa;
   
-  /* 鎏金黑渐变色系 */
-  --gradient-primary: linear-gradient(135deg, #1a1200 0%, #2d1f00 100%);
-  --gradient-tech: linear-gradient(135deg, #ffd700 0%, #ff6b35 50%, #00d9ff 100%);
-  --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #d4af37 100%);
-  --gradient-code: linear-gradient(135deg, #000000 0%, #1a1200 100%);
-  --gradient-success: linear-gradient(135deg, #00ff88 0%, #ffd700 100%);
-  --gradient-hero: linear-gradient(135deg, #000000 0%, #0a0600 30%, #1a1200 70%, #000000 100%);
-  --gradient-card: linear-gradient(135deg, rgba(26, 18, 0, 0.5) 0%, rgba(15, 10, 0, 0.6) 100%);
-  --gradient-feature: linear-gradient(135deg, #000000 0%, #0a0600 100%);
+  /* 移除渐变 */
+  --gradient-primary: none;
+  --gradient-tech: #ffd700;
+  --gradient-card: none;
   
-  /* 鎏金阴影效果 */
-  --box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2), 0 0 0 1px rgba(255, 215, 0, 0.15);
-  --box-shadow-hover: 0 12px 48px rgba(255, 215, 0, 0.4), 0 0 0 1px rgba(255, 215, 0, 0.3);
-  --box-shadow-glow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 107, 53, 0.4);
-  
-  /* 鎏金效果颜色 */
-  --neon-gold: #ffd700;
-  --neon-orange: #ff6b35;
-  --neon-blue: #00d9ff;
-  --neon-purple: #a78bfa;
-  --neon-amber: #ffb700;
-  --code-rain-color: #00ff7f;
-  --code-rain-trail: rgba(0, 0, 0, 0.05);
+  /* 移除阴影 */
+  --box-shadow: none;
+  --box-shadow-hover: none;
 }
 
 /* 全局背景色过渡 */
 body {
-  background-color: var(--bg-secondary);
-  background-image: 
-    radial-gradient(ellipse at top left, rgba(212, 165, 116, 0.06) 0%, transparent 40%),
-    radial-gradient(ellipse at top right, rgba(193, 154, 107, 0.04) 0%, transparent 40%),
-    radial-gradient(ellipse at bottom, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   letter-spacing: 0.3px;
+  overflow-x: hidden;
 }
 
-/* 夜晚模式背景 */
-.dark-theme body {
-  background-color: #000000;
-  background-image: 
-    radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at top right, rgba(255, 107, 53, 0.06) 0%, transparent 40%),
-    radial-gradient(ellipse at bottom, rgba(0, 217, 255, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at center, rgba(255, 215, 0, 0.02) 0%, transparent 100%);
+/* 简化后的按钮样式 */
+button {
+  cursor: pointer;
+  border: 1px solid var(--primary-color); /* 添加边框以替代背景 */
+  border-radius: var(--border-radius);
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  background: transparent; /* 透明背景 */
+  color: var(--text-primary);
 }
 
-/* 全局动画关键帧 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn-primary {
+  background: var(--primary-color); /* 仅主按钮保留纯色背景，或者也透明？用户说“不需要任何背景填充”，通常指页面。按钮如果透明会很难看。保留纯色背景。 */
+  color: #ffffff;
+  border: none;
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 107, 53, 0.6);
-  }
+.btn-secondary:hover {
+  background: rgba(0,0,0,0.05);
+  transform: translateY(-2px);
 }
 
-@keyframes neonPulse {
-  0%, 100% {
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.9),
-                 0 0 30px rgba(255, 215, 0, 0.7),
-                 0 0 45px rgba(255, 215, 0, 0.5);
-  }
-  50% {
-    text-shadow: 0 0 25px rgba(255, 215, 0, 1),
-                 0 0 50px rgba(255, 107, 53, 0.9),
-                 0 0 75px rgba(212, 175, 55, 0.7);
-  }
+/* 统一卡片样式 - 移除背景填充 */
+.card {
+  background: transparent;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  padding: 20px;
+  margin: 10px 0;
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #eaeaea; /* 使用细边框替代背景区分 */
 }
 
-@keyframes borderGlow {
-  0%, 100% {
-    border-color: rgba(255, 215, 0, 0.4);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    border-color: rgba(255, 215, 0, 0.9);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 45px rgba(255, 107, 53, 0.4);
-  }
+.dark-theme .card {
+  border-color: #333;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: var(--border-radius);
-  padding: 12px 28px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width var(--transition-slow), height var(--transition-slow);
-}
-
-button:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn-primary {
-  background: var(--gradient-tech);
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.4), 0 4px 15px rgba(0, 217, 255, 0.3);
-  border: 2px solid rgba(0, 217, 255, 0.5);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  font-weight: 700;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 40px rgba(0, 217, 255, 0.8), 
-              0 0 60px rgba(167, 139, 250, 0.4),
-              0 8px 25px rgba(0, 217, 255, 0.5);
-  border-color: rgba(0, 217, 255, 1);
-  animation: borderGlow 2s ease-in-out infinite;
-}
-
-.btn-primary:active {
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background: var(--gradient-code);
-  color: white;
-  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.3);
-}
-
-.btn-secondary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(30, 41, 59, 0.4);
-}
-
-.card {
-  background: var(--gradient-card);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 24px;
-  margin: 10px 0;
-  transition: all var(--transition-normal) ease;
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(0, 217, 255, 0.2);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 3px;
-  background: var(--gradient-tech);
-  transition: left var(--transition-slow) ease;
-  box-shadow: 0 0 15px rgba(0, 217, 255, 0.8);
-}
-
-.card:hover::before {
-  left: 0;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), 
-              0 0 50px rgba(167, 139, 250, 0.2),
-              var(--box-shadow-hover);
-  border-color: rgba(0, 217, 255, 0.6);
 }

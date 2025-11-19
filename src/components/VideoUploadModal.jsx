@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './VideoUploadModal.css'
 
 const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
@@ -16,22 +17,23 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]
-    setUploadForm({
-      ...uploadForm,
+    setUploadForm((prev) => ({
+      ...prev,
       videoFile: file
-    })
+    }))
   }
 
   const handleInputChange = (e) => {
-    setUploadForm({
-      ...uploadForm,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setUploadForm((prev) => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!uploadForm.videoFile) {
       alert('请选择要上传的视频文件')
       return
@@ -41,9 +43,8 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
     setUploadProgress(0)
 
     try {
-      // 模拟文件上传进度
       const progressInterval = setInterval(() => {
-        setUploadProgress(prev => {
+        setUploadProgress((prev) => {
           if (prev >= 90) {
             clearInterval(progressInterval)
             return 90
@@ -52,13 +53,11 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
         })
       }, 200)
 
-      // 模拟上传处理时间
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      
+      await new Promise((resolve) => setTimeout(resolve, 3000))
+
       clearInterval(progressInterval)
       setUploadProgress(100)
 
-      // 模拟成功回调
       setTimeout(() => {
         onUploadComplete({
           examId: examData.examId,
@@ -68,7 +67,6 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
           uploadTime: new Date()
         })
       }, 500)
-
     } catch (error) {
       alert('上传失败，请重试')
       setUploading(false)
@@ -83,12 +81,29 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
     return '未知类型'
   }
 
-  return (
-    <div className="video-upload-modal-overlay">
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return undefined
+    }
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [])
+
+  if (typeof document === 'undefined') {
+    return null
+  }
+
+  return createPortal(
+    <div className="video-upload-modal-overlay" role="dialog" aria-modal="true">
       <div className="video-upload-modal">
         <div className="modal-header">
           <h3>📤 上传考试讲解视频</h3>
-          <button className="close-btn" onClick={onClose}>❌</button>
+          <button className="close-btn" onClick={onClose}>×</button>
         </div>
 
         <div className="upload-context">
@@ -122,7 +137,7 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
 
           <div className="form-section info-section">
             <h5>📝 视频信息</h5>
-            
+
             <div className="form-group">
               <label>视频标题</label>
               <input
@@ -159,7 +174,7 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
                   required
                 />
               </div>
-              
+
               <div className="form-group">
                 <label>难度级别</label>
                 <select
@@ -186,7 +201,7 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
                 name="topics"
                 value={uploadForm.topics}
                 onChange={handleInputChange}
-                placeholder="用逗号分隔多个知识点，例：循环结构,条件判断,数组操作"
+                placeholder="用逗号分隔多个知识点，例如：循环结构, 条件判断, 数组操作"
                 required
               />
             </div>
@@ -207,7 +222,7 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
             <div className="upload-progress-section">
               <h5>📊 上传进度</h5>
               <div className="progress-bar">
-                <div 
+                <div
                   className="progress-fill"
                   style={{ width: `${uploadProgress}%` }}
                 ></div>
@@ -220,16 +235,16 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
           )}
 
           <div className="modal-actions">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="btn-secondary"
               onClick={onClose}
               disabled={uploading}
             >
               取消
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="btn-primary"
               disabled={uploading || !uploadForm.videoFile}
             >
@@ -238,11 +253,14 @@ const VideoUploadModal = ({ examData, onUploadComplete, onClose }) => {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
 export default VideoUploadModal
+
+
 
 
 
