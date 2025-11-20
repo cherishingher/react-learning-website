@@ -2,8 +2,7 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
-import AlipaySdk from "alipay-sdk";
-import AlipayFormData from "alipay-sdk/lib/form.js";
+import { AlipaySdk, AlipayFormData } from "alipay-sdk";
 import { v4 as uuidv4 } from "uuid";
 dotenv.config();
 
