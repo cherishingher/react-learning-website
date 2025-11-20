@@ -6,8 +6,6 @@ import CompetitionFilter from '../components/CompetitionFilter'
 import UserContext from '../context/UserContext'
 import './Learning.css'
 import HeroStats from '../components/HeroStats'
-import GradualBlur from '../components/GradualBlur'
-import DarkVeil from '../components/DarkVeil'
 
 const Learning = () => {
   const navigate = useNavigate()
@@ -397,30 +395,8 @@ const Learning = () => {
 
   return (
     <div className="learning" style={{ position: 'relative' }}>
-      {/* 顶部渐变模糊效果 */}
-      <GradualBlur
-        position="top"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
-      
-      <div className="learning-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <DarkVeil 
-            hueShift={270}
-            noiseIntensity={0.02}
-            scanlineIntensity={0.05}
-            speed={0.2}
-            scanlineFrequency={0.5}
-            warpAmount={0.2}
-            resolutionScale={0.6}
-          />
-        </div>
-        <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="learning-hero" style={{ position: 'relative' }}>
+        <div className="hero-content">
           <h1>在线学习中心</h1>
           <p>掌握编程技能，开启技术人生</p>
           {!isLoggedIn && (
@@ -576,17 +552,6 @@ const Learning = () => {
           />
         )}
       </div>
-      
-      {/* 底部渐变模糊效果 */}
-      <GradualBlur
-        position="bottom"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
     </div>
   )
 }

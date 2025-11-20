@@ -2,13 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './Home.css'
-import TechBackground from '../components/TechBackground'
-import TechDecoration from '../components/TechDecoration'
-import '../components/TechBackground.css'
+import LetterGlitch from '../components/LetterGlitch'
 import HeroStats from '../components/HeroStats'
 import DomeGallery from '../components/DomeGallery'
-import GradualBlur from '../components/GradualBlur'
-import DarkVeil from '../components/DarkVeil'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -130,46 +126,24 @@ const Home = () => {
   ]
 
   return (
-    <motion.div 
-      className="home"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      style={{ position: 'relative' }}
-    >
-      {/* 顶部渐变模糊效果 */}
-      <GradualBlur
-        position="top"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
-      
-      {/* 科技背景效果 */}
-      <div className="tech-grid-background" />
-      <div className="scanline" />
-      <TechDecoration />
+    <div className="home" style={{ position: 'relative' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, height: '100%' }}>
+        <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={false}
+          smooth={true}
+        />
+      </div>
 
       <motion.section 
         className="hero"
         variants={heroVariants}
-        style={{ position: 'relative', overflow: 'hidden' }}
+        initial="hidden"
+        animate="visible"
+        style={{ position: 'relative', overflow: 'hidden', zIndex: 1 }}
       >
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <DarkVeil 
-            hueShift={270}
-            noiseIntensity={0.02}
-            scanlineIntensity={0.05}
-            speed={0.2}
-            scanlineFrequency={0.5}
-            warpAmount={0.2}
-            resolutionScale={0.6}
-          />
-        </div>
-        <motion.div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
+        <motion.div className="hero-content">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -199,7 +173,7 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      <section className="achievements">
+      <section className="achievements" style={{ position: 'relative', zIndex: 1 }}>
         <div className="achievements-content">
           <div className="achievements-text">
             <h2>学员荣誉</h2>
@@ -255,6 +229,7 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
+        style={{ position: 'relative', zIndex: 1 }}
       >
         <motion.div className="feature-grid">
           <motion.div 
@@ -324,6 +299,7 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
+        style={{ position: 'relative', zIndex: 1 }}
       >
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -437,18 +413,7 @@ const Home = () => {
           </motion.button>
         </motion.div>
       </motion.section>
-      
-      {/* 底部渐变模糊效果 */}
-      <GradualBlur
-        position="bottom"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
-    </motion.div>
+    </div>
   )
 }
 

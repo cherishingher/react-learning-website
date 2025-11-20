@@ -3,11 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Courses.css'
 import { COURSE_LIST, COURSE_CATEGORIES, CATEGORY_ICON_MAP } from '../data/courseCatalog'
-import TechBackground from '../components/TechBackground'
 import FallingText from '../components/FallingText'
-import GradualBlur from '../components/GradualBlur'
-import DarkVeil from '../components/DarkVeil'
-import '../components/TechBackground.css'
 
 const Courses = () => {
   const navigate = useNavigate()
@@ -98,20 +94,6 @@ const Courses = () => {
       variants={containerVariants}
       style={{ position: 'relative' }}
     >
-      {/* 顶部渐变模糊效果 */}
-      <GradualBlur
-        position="top"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
-      
-      {/* 科技背景 */}
-      <div className="tech-grid-background" />
-      
       <motion.div 
         className="courses-header circuit-pattern"
         initial={{ opacity: 0, y: -30 }}
@@ -119,17 +101,6 @@ const Courses = () => {
         transition={{ duration: 0.6 }}
         style={{ position: 'relative', overflow: 'hidden' }}
       >
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <DarkVeil 
-            hueShift={270}
-            noiseIntensity={0.02}
-            scanlineIntensity={0.05}
-            speed={0.2}
-            scanlineFrequency={0.5}
-            warpAmount={0.2}
-            resolutionScale={0.6}
-          />
-        </div>
         <h1 style={{ position: 'relative', zIndex: 1 }}>全部课程</h1>
         <p style={{ position: 'relative', zIndex: 1 }}>选择适合您的课程，开启学习之旅</p>
         <div style={{ position: 'relative', zIndex: 1 }}>
@@ -270,17 +241,6 @@ const Courses = () => {
         ))}
         </AnimatePresence>
       </motion.div>
-      
-      {/* 底部渐变模糊效果 */}
-      <GradualBlur
-        position="bottom"
-        height="6rem"
-        strength={1.5}
-        divCount={4}
-        curve="ease-out"
-        opacity={0.9}
-        zIndex={10}
-      />
     </motion.div>
   )
 }
